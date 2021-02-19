@@ -36,4 +36,4 @@ function humanize(value, decimal=2, memory=1024.0, spc=false) {
    }
 }
 
-console.log(humanize(12345678))
+console.log(humanize(67_003_324_746))
