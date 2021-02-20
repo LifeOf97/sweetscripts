@@ -14,7 +14,7 @@ parser.add_argument("-s", "--size", type=int, help="Enter the value to convert t
 args = parser.parse_args() # get all args here
 
 
-def humanize(value: any, decimal: int=2, memory: float=1024.0, spc: bool=False):
+def humanize(value: any, decimal: int=2, memory: float=1000.0, spc: bool=False) -> str:
     """
     function to convert values in digits to human readable sizes
 
@@ -27,7 +27,7 @@ def humanize(value: any, decimal: int=2, memory: float=1024.0, spc: bool=False):
 
     memory:
     default memory size to use. Gigabyte: 1000.0 or Gibibyte: 1024.0.
-    default is Gibibyte: 1024.0 look up "formula" url @ top comments.
+    default is Gigabyte: 1000.0 look up "formula" url @ top comments.
 
     spc:
     should there be spacing between the converted size and its unit
@@ -48,6 +48,7 @@ def humanize(value: any, decimal: int=2, memory: float=1024.0, spc: bool=False):
         # if the value is still not less than the memory size, divide again.
         value /= memory
 
+
 # this function is called when these script is called from th command line
 # without any command-line argument passed along side.
 def prompt():
@@ -60,7 +61,7 @@ def prompt():
 
 
 if __name__ == "__main__":
-    if args.size: # if command-line arg is passed with -s, --size
+    if args.size: # if command-line arg is passed with one of [-s, --size]
         print(f"Size: {humanize(args.size)}")
     else:
         prompt()

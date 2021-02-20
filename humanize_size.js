@@ -5,9 +5,9 @@
 // formula: https://www.techspot.com/news/68482-quickly-convert-between-storage-size-units-kb-mb.html
 // Credits: https://stackoverflow.com/questions/1094841/get-human-readable-version-of-file-size
 
-function humanize(value, decimal=2, memory=1024.0, spc=false) {
-    // funtion to convert any size to human readable memory size format
+function humanize(value, decimal=2, memory=1000.0, spc=false) {
     /*
+    funtion to convert any size to human readable memory size format
     value:
     the value to convert, this should be type int or float.
 
@@ -17,7 +17,7 @@ function humanize(value, decimal=2, memory=1024.0, spc=false) {
 
     memory:
     default memory size to use. Gigabyte: 1000.0 or Gibibyte: 1024.0.
-    default is Gibibyte: 1024.0 look up "formula" url @ top comments.
+    default is Gigabyte: 1000.0 look up "formula" url @ top comments.
 
     spc:
     should there be spacing between the converted size and its unit
@@ -28,7 +28,9 @@ function humanize(value, decimal=2, memory=1024.0, spc=false) {
 
    for (let unit = 0; unit < units.length; unit++) {
        if (value < memory) {
+           // if spc is true add a space between the size and its unit.
            if (spc) return value.toString().slice(0, value.toString().indexOf('.')+3) + " " + units[unit];
+           // else return size with unit no spacing.
            else return value.toString().slice(0, value.toString().indexOf('.')+3) + units[unit];
        }
        // divide again if value is still greater than memory.
