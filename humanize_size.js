@@ -38,4 +38,4 @@ function humanize(value, decimal=2, memory=1000.0, spc=false) {
    }
 }
 
-console.log(humanize(67_003_324_746))
+console.log(humanize(1024899))
