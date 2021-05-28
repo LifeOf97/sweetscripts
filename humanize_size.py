@@ -5,7 +5,8 @@
 # formula: https://www.techspot.com/news/68482-quickly-convert-between-storage-size-units-kb-mb.html
 # Credits: https://stackoverflow.com/questions/1094841/get-human-readable-version-of-file-size
 
-import argparse, typing
+import argparse
+import typing
 
 # initialize the argparse module
 parser = argparse.ArgumentParser()
@@ -77,7 +78,7 @@ def prompt():
 
 if __name__ == "__main__":
     if args.size: # if command-line arg is passed with one of [-s, --size]
-        print(f"Size: {humanize(args.size)}")
+        print(f"Memory size is : {humanize(args.size)}")
     else:
         prompt()
 else:
